@@ -1,6 +1,6 @@
 ### Introduction to parallel programming in economics and finance
 
-This is a course on to parallel programming, held at the 
+This is a introductory course on parallel programming, held at the 
 Open Source Macroeconomics Laboratory Bootcamp (BFI, University of Chicago) July and August 2017.
 * [OSM](https://github.com/OpenSourceMacro/BootCamp2017) 
 
