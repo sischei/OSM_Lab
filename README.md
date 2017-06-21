@@ -29,7 +29,7 @@ with the results from numerical applications.
 A key part of the course is devoted to hands-on labs based on 
 smaller exercises as well as larger projects. 
 ### Lecturer
-* [Simon Scheidegger](https://sites.google.com/site/simonscheidegger/)
+* [Simon Scheidegger](https://sites.google.com/site/simonscheidegger/) (University of Zurich & Hoover Institution, Stanford)
 
 
 **Date** | **Time** 
