@@ -38,8 +38,7 @@ smaller exercises as well as larger projects.
 07.27.2017 | 08:00 - 12:00 
 08.01.2017 | 08:00 - 12:00 
 08.03.2017 | 08:00 - 12:00 
-### Support or Contact
-Simon Scheidegger
+
 
 
 
