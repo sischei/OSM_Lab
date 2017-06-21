@@ -1,7 +1,10 @@
-# Introduction to parallel programming in economics and finance 
+### Introduction to scientific and parallel programming in economics and finance
 
-Parallel computation has, next to theory and experiments, become in many fields a well-established and recognized third pillar 
-of science within the last couple of years. 
+**Prerequisites:** Students should have prior knowledge in a programming language (a low-leve language such as C++, C, Fortran would be beneficial, but is not required). Moreover, there should be interest in accessing parallel compute resources due to research projects that require non-trivial numerical methods. Students are encouraged to bring their own research projects to be discussed.  
+
+### Purpose of the lecture
+
+Parallel computation has, next to theory and experiments, become in many fields a well-established and recognized third pillar of science within the last couple of years. 
 The emerging computing power available to researchers nowadays reaches up to Petaflop/s,
 which is several million times faster than an average laptop. 
 This allows for computer-aided discoveries that would otherwise be impossible. Also in modern quantitative economics and 
@@ -25,3 +28,18 @@ hybrid parallel programming software developement, and the good scientific condu
 with the results from numerical applications. 
 A key part of the course is devoted to hands-on labs based on 
 smaller exercises as well as larger projects. 
+### Lecturer
+* [Simon Scheidegger](https://sites.google.com/site/simonscheidegger/)
+
+
+**Date** | **Time** 
+-----|------|----------
+07.25.2017 | 08:00 - 12:00 
+07.27.2017 | 08:00 - 12:00 
+08.01.2017 | 08:00 - 12:00 
+08.03.2017 | 08:00 - 12:00 
+### Support or Contact
+Simon Scheidegger
+
+
+
