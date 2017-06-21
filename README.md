@@ -1,4 +1,9 @@
-### Introduction to scientific and parallel programming in economics and finance
+### Introduction to parallel programming in economics and finance
+
+This is a course on to parallel programming, held at the 
+Open Source Macroeconomics Laboratory Bootcamp (BFI, University of Chicago) July and August 2017.
+* [OSM](https://github.com/OpenSourceMacro/BootCamp2017) 
+
 
 **Prerequisites:** Students should have prior knowledge in a programming language (a low-leve language such as C++, C, Fortran would be beneficial, but is not required). Moreover, there should be interest in accessing parallel compute resources due to research projects that require non-trivial numerical methods. Students are encouraged to bring their own research projects to be discussed.  
 
