@@ -37,12 +37,12 @@ smaller exercises as well as larger projects.
 * [Simon Scheidegger](https://sites.google.com/site/simonscheidegger/) (University of Zurich & Hoover Institution, Stanford)
 
 
-**Date** | **Time** 
+**Date** | **Time** | **Topic** 
 -----|------
-07.25.2017 | 08:00 - 12:00 
-07.27.2017 | 08:00 - 12:00 
-08.01.2017 | 08:00 - 12:00 
-08.03.2017 | 08:00 - 12:00 
+07.25.2017 | 08:00 - 12:00 | Introduction to HPC, 
+07.27.2017 | 08:00 - 12:00 | Introduction to OpenMP,
+08.01.2017 | 08:00 - 12:00 | Introduction to Cloud
+08.03.2017 | 08:00 - 12:00 | bla
 
 
 
