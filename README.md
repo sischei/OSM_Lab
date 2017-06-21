@@ -1,5 +1,4 @@
-# OSM_Lab
-Introduction to parallel programming in economics and finance
+# Introduction to parallel programming in economics and finance 
 
 Parallel computation has, next to theory and experiments, become in many fields a well-established and recognized third pillar 
 of science within the last couple of years. 
