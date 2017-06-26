@@ -11,12 +11,12 @@ echo " SPINTERP is unpacked "
 unzip TasmanianSparseGrids_v4.0.zip
 cd TasmanianSparseGrids
 make
-cd InterfacePython
-python example.py
+# cd InterfacePython
+# python example.py  ##test
 echo " Tasmanian library is installed "
 
 # Install IPOPT and PYIPOPT
-cd ../../
+cd ../
 pyipopt_midway
 ./install_midway.sh
 echo " IPOPT and PYIPOPT is installed "
