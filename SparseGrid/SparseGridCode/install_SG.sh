@@ -17,7 +17,7 @@ echo " Tasmanian library is installed "
 
 # Install IPOPT and PYIPOPT
 cd ../
-pyipopt_midway
+cd pyipopt_midway
 ./install_midway.sh
 echo " IPOPT and PYIPOPT is installed "
 
