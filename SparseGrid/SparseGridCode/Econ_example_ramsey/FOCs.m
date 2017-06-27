@@ -1,3 +1,9 @@
+%**************************************************************************
+%
+% This routine computes the firt-order conditions of the Ramsey model
+%
+%**************************************************************************
+
 function [y]=FOCs(v,k,a,alpha,beta,delta,gamma,pers,wquad,pquad,z)
 
 kp=real(v); 
@@ -12,3 +18,4 @@ cp=max(kpvec.^alpha + kpvec*(1-delta)- kpp,10^-6);
 y = c / ( beta*wquad*((alpha*ap.*kpvec.^(alpha-1) + (1-delta)).*(cp).^(-gamma)))^(-1/gamma) - 1;
 end
 
+%**************************************************************************
