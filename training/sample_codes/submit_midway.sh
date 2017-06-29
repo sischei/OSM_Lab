@@ -1,5 +1,5 @@
 #!/bin/bash
-# a sample job submission script to submit an MPI job to the sandyb partition on Midway1
+# a sample job submission script to submit a job to the sandyb partition on Midway1
 
 # set the job name to hello
 #SBATCH --job-name=hello-world
