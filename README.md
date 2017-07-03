@@ -39,6 +39,7 @@ smaller exercises as well as larger projects.
 
 **Date** | **Time** | **Main Topics** 
 -----|------|------
+07.20.2017 | 08:00 - 12:00 | Introduction to Adaptive Sparse Grids
 07.25.2017 | 08:00 - 12:00 | Introduction to HPC
 07.27.2017 | 08:00 - 12:00 | Introduction to OpenMP
 08.01.2017 | 08:00 - 12:00 | Introduction to MPI 
