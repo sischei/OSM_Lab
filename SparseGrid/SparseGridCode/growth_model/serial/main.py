@@ -48,7 +48,7 @@ for i in range(numstart, numits):
     valold=valnew
     valnew.write("valnew_1." + str(i+1) + ".txt")
     
-    #======================================================================
+#======================================================================
 print "==============================================================="
 print " "
 print " Computation of a growth model of dimension ", n_agents ," finished after ", numits, " steps"
@@ -62,7 +62,7 @@ avg_err=post.ls_error(n_agents, numstart, numits, No_samples)
 #======================================================================
 print "==============================================================="
 print " "
-print " Errors are computed -- see error.txt"
+print " Errors are computed -- see errors.txt"
 print " "
 print "==============================================================="
 #======================================================================
