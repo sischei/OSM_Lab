@@ -1,0 +1,51 @@
+-----------------------------------------------------------------
+-
+-   MATLAB interface for TASMANIAN Sparse Grid
+-
+-----------------------------------------------------------------
+
+This is a MATLAB interface for the TASMANIAN Sparse Grid library.
+The interface is NOT build on .mex files, it uses the command line wrapper tasgrid combined with text files
+
+
+
+Requirement:
+
+1. libtasmaniansparsegrids and tasgrid
+
+2. Tested only on Linux, but it should work on Mac OSX
+
+
+
+Installation:
+
+1. Compile libtasmaniansparsegrids and tasgrid
+
+2. Add all the tsg*.m files to your MATLAB path
+
+3. Edit tsgGetPaths.m
+
+   sTasGrid should be the path to the tasgrid executable
+
+   sFiles is the folder where temporary and persistent files are to be written
+
+   do not manually edit the files in the sFiles folder
+
+
+
+Usage:
+
+Every function performs one action available in tasgrid
+
+1. For a quadrature rule, see 'help tsgMakeQuadrature'
+
+2. For a grid with interpolation, see 'help tsgMakeGrid'
+
+   tsgMakeGrid will create a grid file in sFiles and lGrid will contain the name of that grid
+   call tsgDeleteGrid( lGrid ) before deleting lGrid, otherwise you will be left with unrefeenced files in sFiles
+   you can see all grid files in sFiles by calling tsgListGridsByName()
+   you can also manually delete the grids by name using tsgDeleteGridByName( 'grid_name' )
+   if a grid is deleted by tsgDeleteGrid or tsgDeleteGridByName, then the files are removed and any associated lGrid should be removed
+
+
+

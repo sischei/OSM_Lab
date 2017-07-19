@@ -5,7 +5,7 @@ clear all;
 clc;
 addpath('../../TasmanianSparseGrids/InterfaceMATLAB');
 
-plot_choice = 0; % 0=make no plots; 1=make plots
+plot_choice = 1; % 0=make no plots; 1=make plots
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

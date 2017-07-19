@@ -1,0 +1,18 @@
+#
+# Check the compile options here
+# this is an example of how to link to
+# the tasmanian library
+#
+
+CC = @CMAKE_CXX_COMPILER@
+OPTC = @TSGLibOPTC@
+LIBTSG = @TSGLibStatic@
+ITSG = -I@TSGIncludePath@
+
+all: example
+
+example: example.cpp
+	$(CC) $(OPTC) $(ITSG) example.cpp -o example $(LIBTSG)
+	
+clean:
+	rm -fr example

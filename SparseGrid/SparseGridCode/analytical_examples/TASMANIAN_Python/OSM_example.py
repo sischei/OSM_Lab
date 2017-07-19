@@ -29,6 +29,12 @@
 # THE USER ASSUMES RESPONSIBILITY FOR ALL LIABILITIES, PENALTIES, FINES, CLAIMS, CAUSES OF ACTION, AND COSTS AND EXPENSES, CAUSED BY, RESULTING FROM OR ARISING OUT OF,
 # IN WHOLE OR IN PART THE USE, STORAGE OR DISPOSAL OF THE SOFTWARE.
 ##############################################################################################################################################################################
+#
+#
+#  The examples below were adjusted for the OSM 17 lab at BFI Chicago.
+#  Simon Scheidegger, 07/17
+#
+##############################################################################################################################################################################
 
 # necessary import for every use of TASMANIAN
 #
@@ -51,30 +57,32 @@ grid2 = TasmanianSG.TasmanianSparseGrid()
 
 # EXAMPLE 1 for OSM:
 # interpolate: f(x,y) = cos(0.5 * pi * x) * cos(0.5 * pi * y)
-# using localp and semilocalp grids
+# using piecewise linear basis functions.
 
 # 1000 2-dimensional sample points 
 aPnts = np.empty([1000, 2])  
 for iI in range(1000):
     for iJ in range(2):
         aPnts[iI][iJ] = uniform(-1.0, 1.0)
-#aPnts = aPnts[:,:2]
 
+# Result
 aTres = np.empty([1000,])
 for iI in range(1000):
     aTres[iI] = math.cos(0.5 * math.pi * aPnts[iI][0]) * math.cos(0.5 * math.pi * aPnts[iI][1])
 
+# Sparse Grid with dimension 2 and 1 output and refinement level 5
 iDim = 2
 iOut = 1
-iDepth = 7
+iDepth = 5
+which_basis = 1 #1= linear basis functions -> Check the manual for other options
 
 print("\n-------------------------------------------------------------------------------------------------")
 print("Example 1 for OSM: interpolate f(x,y) = cos(0.5 * pi * x) * cos(0.5 * pi * y)")
-print("       using localp and localp-zero rules with depth {0:1d}".format(iDepth))
+print("       using fixed sparse grid with depth {0:1d}".format(iDepth))
 print("       the error is estimated as the maximum from 1000 random points\n")
 
-grid.makeLocalPolynomialGrid(iDim, iOut, iDepth, 2, "localp")
-
+# construct sparse grid
+grid.makeLocalPolynomialGrid(iDim, iOut, iDepth, which_basis, "localp")
 aPoints = grid.getPoints()
 iNumP1 = aPoints.shape[0]
 aVals = np.empty([aPoints.shape[0], 1])
@@ -82,135 +90,76 @@ for iI in range(aPoints.shape[0]):
     aVals[iI] = math.cos(0.5 * math.pi * aPoints[iI][0]) * math.cos(0.5 * math.pi * aPoints[iI][1])
 grid.loadNeededPoints(aVals)
 
+# compute the error
 aRes = grid.evaluateBatch(aPnts)
 fError1 = max(np.fabs(aRes[:,0] - aTres))
+print(" For localp    Number of points: {0:1d}   Max. Error: {1:1.16e}".format(iNumP1, fError1))
 
-grid.makeLocalPolynomialGrid(iDim, iOut, iDepth-1, 2, "localp-zero")
-
-aPoints = grid.getPoints()
-iNumP2 = aPoints.shape[0]
-aVals = np.empty([aPoints.shape[0], 1])
-for iI in range(aPoints.shape[0]):
-    aVals[iI] = math.cos(0.5 * math.pi * aPoints[iI][0]) * math.cos(0.5 * math.pi * aPoints[iI][1])
-grid.loadNeededPoints(aVals)
-
-aRes = grid.evaluateBatch(aPnts)
-fError2 = max(np.fabs(aRes[:,0] - aTres))
-
-print(" For localp    Number of points: {0:1d}   Error: {1:1.16e}".format(iNumP1, fError1))
-print(" For localp-zero   Number of points: {0:1d}   Error: {1:1.16e}".format(iNumP2, fError2))
-print(" Note: localp-zero wins this competition because the function is zero at the boundary")
+# write coordinates of grid to a text file
+f=open("fix_sparse_grid.txt", 'a')
+np.savetxt(f, aPoints, fmt='% 2.16f')
+f.close()
 
 #############################################################################
 
-
-# EXAMPLE 2 for OSM:
-# interpolate: f(x,y) = exp(-x) / (1 + 100 * exp(-10 * y))
-# using different refinement schemes
+## EXAMPLE 2 for OSM:
+## interpolate: f(x,y) = exp(-x) / (1 + 100 * exp(-10 * y))
+## using refinement
 
 aTres = np.empty([1000,])
 for iI in range(1000):
-    aTres[iI] = math.exp(-aPnts[iI][0]) / (1.0 + 100.0 * math.exp(-10.0 * aPnts[iI][1]))
+    aTres[iI] = math.cos(0.5 * math.pi * aPnts[iI][0]) * math.cos(0.5 * math.pi * aPnts[iI][1])
 
+# Adaptive Sparse Grid with dimension 2 and 1 output and maximum refinement level 5, refinement criterion.
 iDim = 2
 iOut = 1
-iDepth = 2
+iDepth = 1
 fTol = 1.E-5
+which_basis = 1 
+refinement_level = 5
 
-grid1.makeLocalPolynomialGrid(iDim, iOut, iDepth, -1, "localp")
+# level of grid before refinement
+grid1.makeLocalPolynomialGrid(iDim, iOut, iDepth, which_basis, "localp")
 
 aPoints = grid1.getPoints()
 aVals = np.empty([aPoints.shape[0], 1])
 for iI in range(aPoints.shape[0]):
-    aVals[iI] = math.exp(-aPoints[iI][0]) / (1.0 + 100.0 * math.exp(-10.0 * aPoints[iI][1]))
+    aVals[iI] = math.cos(0.5 * math.pi * aPoints[iI][0]) * math.cos(0.5 * math.pi * aPoints[iI][1])
 grid1.loadNeededPoints(aVals)
 
-grid2.makeLocalPolynomialGrid(iDim, iOut, iDepth, -1, "localp")
-grid2.loadNeededPoints(aVals)
-
 print("\n-------------------------------------------------------------------------------------------------")
-print("Example 2: interpolate f(x,y) = exp(-x) / (1 + 100 * exp(-10 * y))")
+print("Example 2: interpolate f(x,y) = cos(0.5 * pi * x) * cos(0.5 * pi * y)")
 print("   the error is estimated as the maximum from 1000 random points")
-print("   tolerance is set at 1.E-5 and maximal order polynomials are used\n")
+print("   tolerance is set at 1.E-5 and piecewise linear basis functions are used\n")
 
-print("               Classic         FDS")
-print(" precision    points     error    points     error")
+print("               Classic refinement ")
+print(" refinement level         points     error   ")
 
-for iK in range(7):
-    grid1.setSurplusRefinement(fTol, -1, "classic")
+#refinement level
+for iK in range(refinement_level):
+    grid1.setSurplusRefinement(fTol, 1, "fds")   #also use fds, or other rules
     aPoints = grid1.getNeededPoints()
     aVals = np.empty([aPoints.shape[0], 1])
     for iI in range(aPoints.shape[0]):
-        aVals[iI] = math.exp(-aPoints[iI][0]) / (1.0 + 100.0 * math.exp(-10.0 * aPoints[iI][1]))
+        aVals[iI] = math.cos(0.5 * math.pi * aPoints[iI][0]) * math.cos(0.5 * math.pi * aPoints[iI][1])
     grid1.loadNeededPoints(aVals)
 
     aRes = grid1.evaluateBatch(aPnts)
     fError1 = max(np.fabs(aRes[:,0] - aTres))
 
-    grid2.setSurplusRefinement(fTol, -1, "fds")
-    aPoints = grid2.getNeededPoints()
-    aVals = np.empty([aPoints.shape[0], 1])
-    for iI in range(aPoints.shape[0]):
-        aVals[iI] = math.exp(-aPoints[iI][0]) / (1.0 + 100.0 * math.exp(-10.0 * aPoints[iI][1]))
-    grid2.loadNeededPoints(aVals)
+    print(" {0:9d} {1:9d}  {2:1.2e}".format(iK+1, grid1.getNumPoints(), fError1))
 
-    aRes = grid2.evaluateBatch(aPnts)
-    fError2 = max(np.fabs(aRes[:,0] - aTres))
-
-    print(" {0:9d} {1:9d}  {2:1.2e} {3:9d}  {4:1.2e}".format(iK+1, grid1.getNumPoints(), fError1, grid2.getNumPoints(), fError2))
-  
-
-#############################################################################
-#
-# EXAMPLE 3 for OSM:
-# interpolate: f(x,y) = exp(-x) / (1 + 100 * exp(-10 * y))
-# using local polynomails and wavelets
-
-grid1.makeLocalPolynomialGrid(iDim, iOut, iDepth=3, iOrder=1, sRule="localp")
-aPoints = grid1.getPoints()
-aVals = np.empty([aPoints.shape[0], 1])
-for iI in range(aPoints.shape[0]):
-    aVals[iI] = math.exp(-aPoints[iI][0]) / (1.0 + 100.0 * math.exp(-10.0 * aPoints[iI][1]))
-grid1.loadNeededPoints(aVals)
-
-grid2.makeWaveletGrid(iDim, iOut, iDepth=1, iOrder=1)
-aPoints = grid2.getPoints()
-aVals = np.empty([aPoints.shape[0], 1])
-for iI in range(aPoints.shape[0]):
-    aVals[iI] = math.exp(-aPoints[iI][0]) / (1.0 + 100.0 * math.exp(-10.0 * aPoints[iI][1]))
-grid2.loadNeededPoints(aVals)
-
+# write coordinates of grid to a text file
+f2=open("Adaptive_sparse_grid.txt", 'a')
+np.savetxt(f2, aPoints, fmt='% 2.16f')
+f2.close()
+ 
+grid2 = TasmanianSG.TasmanianSparseGrid()
+grid2.makeLocalPolynomialGrid(iDim, iOut, refinement_level+iDepth, which_basis, "localp")
+a = grid2.getNumPoints()
+ 
 print("\n-------------------------------------------------------------------------------------------------")
-print("Example 3: interpolate f(x,y) = exp(-x) / (1 + 100 * exp(-10 * y))")
-print("   the error is estimated as the maximum from 1000 random points")
-print("   using local polynomials and wavelets\n")
-
-print("           Polynomials        Wavelets")
-print(" precision    points     error    points     error")
-
-for iK in range(8):
-    grid1.setSurplusRefinement(fTol, -1, "fds")
-    aPoints = grid1.getNeededPoints()
-    aVals = np.empty([aPoints.shape[0], 1])
-    for iI in range(aPoints.shape[0]):
-        aVals[iI] = math.exp(-aPoints[iI][0]) / (1.0 + 100.0 * math.exp(-10.0 * aPoints[iI][1]))
-    grid1.loadNeededPoints(aVals)
-
-    aRes = grid1.evaluateBatch(aPnts)
-    fError1 = max(np.fabs(aRes[:,0] - aTres))
-
-    grid2.setSurplusRefinement(fTol, -1, "fds")
-    aPoints = grid2.getNeededPoints()
-    aVals = np.empty([aPoints.shape[0], 1])
-    for iI in range(aPoints.shape[0]):
-        aVals[iI] = math.exp(-aPoints[iI][0]) / (1.0 + 100.0 * math.exp(-10.0 * aPoints[iI][1]))
-    grid2.loadNeededPoints(aVals)
-
-    aRes = grid2.evaluateBatch(aPnts)
-    fError2 = max(np.fabs(aRes[:,0] - aTres))
-
-    print(" {0:9d} {1:9d}  {2:1.2e} {3:9d}  {4:1.2e}".format(iK+1, grid1.getNumPoints(), fError1, grid2.getNumPoints(), fError2))
-
+print "   a fix sparse grid of level ", refinement_level+iDepth, " would consist of " ,a, " points"
 print("\n-------------------------------------------------------------------------------------------------\n")    
 
 
