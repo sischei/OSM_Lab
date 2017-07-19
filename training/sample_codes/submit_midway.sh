@@ -1,7 +1,7 @@
 #!/bin/bash
-# a sample job submission script to submit a job to the sandyb partition on Midway1
+# a sample job submission script to submit an MPI job to the sandyb partition on Midway1
 
-# set the job name to hello
+# set the job name to hello-world
 #SBATCH --job-name=hello-world
 
 # send output to hello-world.out
@@ -18,5 +18,7 @@
 # sandby partition on Midway1 will be selected as the default partition
 #SBATCH --partition=sandyb
 
-# Run the process 
-./helloworld.exec
+# Run the process with mpirun. Notice -n is not required. mpirun will
+# automatically figure out how many processes to run from the slurm options
+./helloworld.cpp.exec
+
