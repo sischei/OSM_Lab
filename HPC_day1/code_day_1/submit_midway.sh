@@ -19,4 +19,4 @@
 #SBATCH --partition=sandyb
 
 # Run the process 
-./helloworld.exe
+./helloworld.cpp.exec
