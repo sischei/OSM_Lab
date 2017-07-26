@@ -1,0 +1,81 @@
+#######################################################################	
+
+all: 1.hello_world.exec 1a.hello_world.exec 2.racing_cond.exec 3.racing_cond_fix.exec \
+	4.integration_pi.exec 4a.integration_pi.exec \
+	4b.worksharing.f90.exec 4c.worksharing.cpp.exec 4d.work.exec\
+	4e.work-print.exec 4f.work-static.exec 4g.work-dynamic.exec\
+	5.vec_add_sections.exec \
+	6.integration_pi_reduction.exec \
+	dot_prod.exec normalize_vec.exec 
+
+#######################################################################	
+
+## Example 1
+1.hello_world.exec : 1.hello_world.f90
+	gfortran 1.hello_world.f90 -fopenmp -o 1.hello_world.exec
+
+## Example 1a
+1a.hello_world.exec : 1a.hello_world.cpp
+	g++ 1a.hello_world.cpp -fopenmp -o 1a.hello_world.exec	
+	
+## Example 2
+2.racing_cond.exec : 2.racing_cond.f90
+	gfortran 2.racing_cond.f90 -fopenmp -o 2.racing_cond.exec	
+
+## Example 3
+3.racing_cond_fix.exec : 3.racing_cond_fix.f90
+	gfortran 3.racing_cond_fix.f90 -fopenmp -o 3.racing_cond_fix.exec	
+	
+## Example 4
+4.integration_pi.exec: 4.integration_pi.f90
+	gfortran 4.integration_pi.f90 -fopenmp -o 4.integration_pi.exec
+
+## Example 4a
+4a.integration_pi.exec: 4a.integration_pi.cpp
+	g++ 4a.integration_pi.cpp -fopenmp -o 4a.integration_pi.exec	
+	
+## Example 4b
+4b.worksharing.f90.exec: 4b.worksharing.f90
+	gfortran 4b.worksharing.f90 -fopenmp -o 4b.worksharing.f90.exec	
+	
+## Example 4c
+4c.worksharing.cpp.exec: 4c.worksharing.cpp
+	g++ 4c.worksharing.cpp -fopenmp -o 4c.worksharing.cpp.exec		
+	
+## Example 4d
+4d.work.exec: 4d.work.cpp
+	g++ 4d.work.cpp -fopenmp -o 4d.work.exec
+
+## Example 4e
+4e.work-print.exec: 4e.work-print.cpp
+	g++ 4e.work-print.cpp -fopenmp -o 4e.work-print.exec	
+	
+## Example 4f
+4f.work-static.exec: 4f.work-static.cpp
+	g++ 4f.work-static.cpp -fopenmp -o 4f.work-static.exec		
+
+## Example 4g
+4g.work-dynamic.exec: 4g.work-dynamic.cpp
+	g++ 4g.work-dynamic.cpp -fopenmp -o 4g.work-dynamic.exec		
+
+## Example 5
+5.vec_add_sections.exec: 5.vec_add_sections.f90
+	gfortran 5.vec_add_sections.f90 -fopenmp -o 5.vec_add_sections.exec
+
+## Example 5
+6.integration_pi_reduction.exec: 6.integration_pi_reduction.f90
+	gfortran 6.integration_pi_reduction.f90 -fopenmp -o 6.integration_pi_reduction.exec	
+
+#######################################################################	
+## EXERCISE 1
+normalize_vec.exec : normalize_vec.f90
+	gfortran normalize_vec.f90 -fopenmp -o normalize_vec.exec
+
+## EXERCISE 2
+dot_prod.exec : dot_prod.f90
+	gfortran dot_prod.f90 -fopenmp -o dot_prod.exec
+
+#######################################################################	
+	
+clean :
+	rm -f *.exec

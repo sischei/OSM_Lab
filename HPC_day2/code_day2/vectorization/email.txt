@@ -1,0 +1,9 @@
+Hi Simon,
+This should work, i used g++. For some reason i couldn’t vectorize one of the loops so i readjusted the main.cpp.
+
+The results you should have are as follows:
+
+Non-vectorized:  Both float and double should take the same time to run.
+Vectorized: The double loop should be 2x faster than non-vec and the float should be 4x faster than non-vec.
+
+For something non-vectorizable just throw and “if" in the loop...

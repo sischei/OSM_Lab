@@ -1,0 +1,264 @@
+
+;; Function int main(int, const char**) (main, funcdef_no=1067, decl_uid=21078, symbol_order=245) (executed once)
+
+Merging blocks 10 and 23
+Merging blocks 11 and 22
+Merging blocks 19 and 21
+int main(int, const char**) (int argc, const char * * argv)
+{
+  vector(2) double * vectp_a.51;
+  vector(2) double * vectp_a.50;
+  vector(2) double vect__31.49;
+  vector(2) double vect__30.48;
+  vector(2) double * vectp_b.47;
+  vector(2) double * vectp_b.46;
+  vector(2) double vect__29.45;
+  vector(2) double * vectp_a.44;
+  vector(2) double * vectp_a.43;
+  vector(4) float * vectp_b1.42;
+  vector(4) float * vectp_b1.41;
+  vector(4) float vect_cst_.40;
+  vector(4) float * vectp_a1.39;
+  vector(4) float * vectp_a1.38;
+  vector(4) float vect_cst_.37;
+  vector(4) float * vectp_a1.36;
+  vector(4) float * vectp_a1.35;
+  vector(4) float vect__45.34;
+  vector(4) float vect__44.33;
+  vector(4) float * vectp_b1.32;
+  vector(4) float * vectp_b1.31;
+  vector(4) float vect__43.30;
+  vector(4) float * vectp_a1.29;
+  vector(4) float * vectp_a1.28;
+  int i;
+  int j;
+  int i;
+  int i;
+  int j;
+  int i;
+  clock_t t1;
+  clock_t t;
+  float[0:D.21161] * b1.3;
+  float[0:D.21154] * a1.2;
+  double[0:D.21147] * b.1;
+  double[0:D.21140] * a.0;
+  unsigned int ivtmp_1;
+  unsigned int ivtmp_2;
+  unsigned int ivtmp_3;
+  unsigned int ivtmp_4;
+  unsigned int ivtmp_5;
+  unsigned int ivtmp_6;
+  unsigned int ivtmp_7;
+  void * saved_stack.4_15;
+  double _29;
+  double _30;
+  double _31;
+  unsigned int ivtmp_32;
+  long unsigned int _36;
+  unsigned int ivtmp_41;
+  float _43;
+  float _44;
+  float _45;
+  unsigned int ivtmp_46;
+  long unsigned int _50;
+  double _52;
+  double _53;
+  double _54;
+  struct basic_ostream & _56;
+  struct __ostream_type & _57;
+  struct basic_ostream & _59;
+  struct __ostream_type & _60;
+  struct basic_ostream & _63;
+  struct basic_ostream & _67;
+  struct __ostream_type & _71;
+  unsigned int ivtmp_80;
+  unsigned int ivtmp_81;
+  unsigned int ivtmp_83;
+  unsigned int ivtmp_84;
+  unsigned int ivtmp_87;
+  unsigned int ivtmp_89;
+  unsigned int ivtmp_106;
+  unsigned int ivtmp_120;
+
+  <bb 2>:
+  saved_stack.4_15 = __builtin_stack_save ();
+  a.0_17 = __builtin_alloca_with_align (16384, 64);
+  b.1_19 = __builtin_alloca_with_align (16384, 64);
+  a1.2_21 = __builtin_alloca_with_align (8192, 32);
+  b1.3_23 = __builtin_alloca_with_align (8192, 32);
+  t_25 = clock ();
+
+  <bb 3>:
+  # i_77 = PHI <i_28(5), 0(2)>
+  # ivtmp_2 = PHI <ivtmp_1(5), 2048(2)>
+  *a.0_17[i_77] = 3.0e+0;
+  *b.1_19[i_77] = 7.0e+0;
+  i_28 = i_77 + 1;
+  ivtmp_1 = ivtmp_2 - 1;
+  if (ivtmp_1 != 0)
+    goto <bb 5>;
+  else
+    goto <bb 4>;
+
+  <bb 4>:
+  goto <bb 10>;
+
+  <bb 5>:
+  goto <bb 3>;
+
+  <bb 6>:
+
+  <bb 7>:
+  # i_91 = PHI <i_33(6), 0(10)>
+  # ivtmp_6 = PHI <ivtmp_5(6), 2048(10)>
+  # vectp_a.43_108 = PHI <vectp_a.43_109(6), vectp_a.44_107(10)>
+  # vectp_b.46_112 = PHI <vectp_b.46_113(6), vectp_b.47_111(10)>
+  # vectp_a.50_117 = PHI <vectp_a.50_118(6), vectp_a.51_116(10)>
+  # ivtmp_32 = PHI <ivtmp_120(6), 0(10)>
+  vect__29.45_110 = MEM[(double *)vectp_a.43_108];
+  _29 = *a.0_17[i_91];
+  vect__30.48_114 = MEM[(double *)vectp_b.46_112];
+  _30 = *b.1_19[i_91];
+  vect__31.49_115 = vect__29.45_110 + vect__30.48_114;
+  _31 = _29 + _30;
+  MEM[(double *)vectp_a.50_117] = vect__31.49_115;
+  i_33 = i_91 + 1;
+  ivtmp_5 = ivtmp_6 - 1;
+  vectp_a.43_109 = vectp_a.43_108 + 16;
+  vectp_b.46_113 = vectp_b.46_112 + 16;
+  vectp_a.50_118 = vectp_a.50_117 + 16;
+  ivtmp_120 = ivtmp_32 + 1;
+  if (ivtmp_120 < 1024)
+    goto <bb 6>;
+  else
+    goto <bb 8>;
+
+  <bb 8>:
+  j_34 = j_61 + 1;
+  ivtmp_3 = ivtmp_4 - 1;
+  if (ivtmp_3 != 0)
+    goto <bb 9>;
+  else
+    goto <bb 11>;
+
+  <bb 9>:
+
+  <bb 10>:
+  # j_61 = PHI <j_34(9), 0(4)>
+  # ivtmp_4 = PHI <ivtmp_3(9), 2048(4)>
+  vectp_a.44_107 = a.0_17;
+  vectp_b.47_111 = b.1_19;
+  vectp_a.51_116 = a.0_17;
+  goto <bb 7>;
+
+  <bb 11>:
+  _36 = clock ();
+  t_37 = _36 - t_25;
+  t1_39 = clock ();
+  vect_cst_.37_75 = { 3.0e+0, 3.0e+0, 3.0e+0, 3.0e+0 };
+  vectp_a1.39_65 = a1.2_21;
+  vect_cst_.40_40 = { 7.0e+0, 7.0e+0, 7.0e+0, 7.0e+0 };
+  vectp_b1.42_102 = b1.3_23;
+
+  <bb 12>:
+  # i_92 = PHI <i_42(14), 0(11)>
+  # ivtmp_81 = PHI <ivtmp_80(14), 2048(11)>
+  # vectp_a1.38_68 = PHI <vectp_a1.38_78(14), vectp_a1.39_65(11)>
+  # vectp_b1.41_103 = PHI <vectp_b1.41_104(14), vectp_b1.42_102(11)>
+  # ivtmp_41 = PHI <ivtmp_106(14), 0(11)>
+  MEM[(float *)vectp_a1.38_68] = vect_cst_.37_75;
+  MEM[(float *)vectp_b1.41_103] = vect_cst_.40_40;
+  i_42 = i_92 + 1;
+  ivtmp_80 = ivtmp_81 - 1;
+  vectp_a1.38_78 = vectp_a1.38_68 + 16;
+  vectp_b1.41_104 = vectp_b1.41_103 + 16;
+  ivtmp_106 = ivtmp_41 + 1;
+  if (ivtmp_106 < 512)
+    goto <bb 14>;
+  else
+    goto <bb 13>;
+
+  <bb 13>:
+  goto <bb 19>;
+
+  <bb 14>:
+  goto <bb 12>;
+
+  <bb 15>:
+
+  <bb 16>:
+  # i_94 = PHI <i_47(15), 0(19)>
+  # ivtmp_89 = PHI <ivtmp_87(15), 2048(19)>
+  # vectp_a1.28_88 = PHI <vectp_a1.28_86(15), vectp_a1.29_90(19)>
+  # vectp_b1.31_79 = PHI <vectp_b1.31_12(15), vectp_b1.32_82(19)>
+  # vectp_a1.35_9 = PHI <vectp_a1.35_8(15), vectp_a1.36_10(19)>
+  # ivtmp_46 = PHI <ivtmp_7(15), 0(19)>
+  vect__43.30_85 = MEM[(float *)vectp_a1.28_88];
+  _43 = *a1.2_21[i_94];
+  vect__44.33_11 = MEM[(float *)vectp_b1.31_79];
+  _44 = *b1.3_23[i_94];
+  vect__45.34_64 = vect__43.30_85 + vect__44.33_11;
+  _45 = _43 + _44;
+  MEM[(float *)vectp_a1.35_9] = vect__45.34_64;
+  i_47 = i_94 + 1;
+  ivtmp_87 = ivtmp_89 - 1;
+  vectp_a1.28_86 = vectp_a1.28_88 + 16;
+  vectp_b1.31_12 = vectp_b1.31_79 + 16;
+  vectp_a1.35_8 = vectp_a1.35_9 + 16;
+  ivtmp_7 = ivtmp_46 + 1;
+  if (ivtmp_7 < 512)
+    goto <bb 15>;
+  else
+    goto <bb 17>;
+
+  <bb 17>:
+  j_48 = j_93 + 1;
+  ivtmp_83 = ivtmp_84 - 1;
+  if (ivtmp_83 != 0)
+    goto <bb 18>;
+  else
+    goto <bb 20>;
+
+  <bb 18>:
+
+  <bb 19>:
+  # j_93 = PHI <j_48(18), 0(13)>
+  # ivtmp_84 = PHI <ivtmp_83(18), 2048(13)>
+  vectp_a1.29_90 = a1.2_21;
+  vectp_b1.32_82 = b1.3_23;
+  vectp_a1.36_10 = a1.2_21;
+  goto <bb 16>;
+
+  <bb 20>:
+  _50 = clock ();
+  t1_51 = _50 - t1_39;
+  _52 = (double) t_37;
+  _53 = (double) t1_51;
+  _54 = _52 / _53;
+  _56 = std::operator<< <std::char_traits<char> > (&cout, "CPU Clock [ double , float , double/float ] : [");
+  _71 = std::basic_ostream<char>::_M_insert<long unsigned int> (_56, t_37);
+  _59 = std::operator<< <std::char_traits<char> > (_71, ",");
+  _57 = std::basic_ostream<char>::_M_insert<long unsigned int> (_59, t1_51);
+  _63 = std::operator<< <std::char_traits<char> > (_57, ",");
+  _60 = std::basic_ostream<char>::_M_insert<double> (_63, _54);
+  _67 = std::operator<< <std::char_traits<char> > (_60, "]");
+  std::endl<char, std::char_traits<char> > (_67);
+  __builtin_stack_restore (saved_stack.4_15);
+  return 1;
+
+}
+
+
+
+;; Function (static initializers for main.cpp) (_GLOBAL__sub_I_main.cpp, funcdef_no=1079, decl_uid=21136, symbol_order=388) (executed once)
+
+(static initializers for main.cpp) ()
+{
+  <bb 2>:
+  std::ios_base::Init::Init (&__ioinit);
+  __cxa_atexit (__comp_dtor , &__ioinit, &__dso_handle);
+  return;
+
+}
+
+
