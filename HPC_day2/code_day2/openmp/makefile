@@ -4,7 +4,7 @@ all: 1.hello_world.exec 1a.hello_world.exec 2.racing_cond.exec 3.racing_cond_fix
 	4.integration_pi.exec 4a.integration_pi.exec \
 	4b.worksharing.f90.exec 4c.worksharing.cpp.exec 4d.work.exec\
 	4e.work-print.exec 4f.work-static.exec 4g.work-dynamic.exec\
-	5.vec_add_sections.exec \
+	5.vec_add_sections.exec 5a.vec_add_sections.exec \
 	6.integration_pi_reduction.exec \
 	dot_prod.exec normalize_vec.exec 
 
@@ -62,6 +62,10 @@ all: 1.hello_world.exec 1a.hello_world.exec 2.racing_cond.exec 3.racing_cond_fix
 5.vec_add_sections.exec: 5.vec_add_sections.f90
 	gfortran 5.vec_add_sections.f90 -fopenmp -o 5.vec_add_sections.exec
 
+## Example 5
+5a.vec_add_sections.exec: 5a.vec_add_sections.cpp
+	g++ 5a.vec_add_sections.cpp -fopenmp -o 5a.vec_add_sections.exec
+	
 ## Example 5
 6.integration_pi_reduction.exec: 6.integration_pi_reduction.f90
 	gfortran 6.integration_pi_reduction.f90 -fopenmp -o 6.integration_pi_reduction.exec	
