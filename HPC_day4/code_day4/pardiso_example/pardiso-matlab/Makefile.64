@@ -3,7 +3,9 @@
 MEXSUFFIX   = mexa64
 MEX         = mex
 CXX         = g++
-PARDISOHOME = /home/simonsch/OSM_Lab/HPC_day4/code_day4/pardiso_example/lib#$(HOME)/pardiso/lib
+#PARDISOHOME = /home/simonsch/OSM_Lab/HPC_day4/code_day4/pardiso_example/lib#$(HOME)/pardiso/lib
+
+PARDISOHOME = lib
 
 # Do not edit anything past here (unless you know what you're doing).
 MEXFLAGS   = -cxx CXX=$(CXX) CC=$(CXX) LD=$(CXX) -largeArrayDims \
